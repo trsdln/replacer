@@ -6,9 +6,13 @@ REPLACE=$3
 TOP_LINE=$4
 TEMP_FILE=.tmp
 
-
 TOP_STAT="NO"
 REPL_STAT="NO"
+
+if [ !${TARGET_FILE} ] || [ ! -f ${TARGET_FILE} ]; then
+  echo "File not found: '${TARGET_FILE}'"
+  exit 1;
+fi
 
 if grep -q "${FIND}" ${TARGET_FILE}; then # file contains string we need to replace
     # check if we need to top line
