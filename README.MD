@@ -1,15 +1,17 @@
 # Utility for bulk text replacement
 
-### Usage:
+Written specifically for migration from global variables to modules in Meteor project.
 
-```
+__Syntax:__
+
+```sh
 $ replacer.sh targetFile whatReplace withWhat addThisAtTopOfFile
 ```
 
-### Usage example
+__Usage example:__
 
 
-```
+```sh
 TOP_LINE="import \{ MyModule \} from 'imports/path/to/my/mod';"
 FIND='App.Foo.MyModule'
 REPLACE='MyModule'
@@ -20,5 +22,5 @@ for FILE in `git ls-files . | grep '.js'`; do
 done
 ```
 
-It uses `sed` which is not compatible between Linux and Mac OS, so
-right now it works only with Mac OS.
+Right now it works only with Mac OS X, because it uses `sed` which isn't 
+compatible with Linux's version of the utility.

@@ -18,6 +18,3 @@ for SOURCE_FILE in `ls -1 test/*`; do
 
   ./replacer.sh "${FILE}" "${FIND}" "${REPLACE}" "${TOP_LINE}"
 done
-
-
-
