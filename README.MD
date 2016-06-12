@@ -5,14 +5,14 @@ Written specifically for migration from global variables to modules in Meteor pr
 __Syntax:__
 
 ```sh
-$ replacer.sh targetFile whatReplace withWhat addThisAtTopOfFile
+$ replacer.sh file replace with top_line
 ```
 
 __Usage example:__
 
 
 ```sh
-TOP_LINE="import \{ MyModule \} from 'imports/path/to/my/mod';"
+TOP_LINE="import { MyModule } from 'imports/path/to/my/mod';"
 FIND='App.Foo.MyModule'
 REPLACE='MyModule'
 
