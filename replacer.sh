@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TARGET_FILE=$1
+TARGET_FILE="./${1}"
 FIND=$2
 REPLACE=$3
 TOP_LINE=$4
@@ -9,9 +9,9 @@ TEMP_FILE=.tmp
 TOP_STAT="NO"
 REPL_STAT="NO"
 
-if [ !${TARGET_FILE} ] || [ ! -f ${TARGET_FILE} ]; then
-  echo "File not found: '${TARGET_FILE}'"
-  exit 1;
+if [ ! -f ${TARGET_FILE} ]; then
+    echo "File not found: '${TARGET_FILE}'"
+    exit 1;
 fi
 
 if grep -q "${FIND}" ${TARGET_FILE}; then # file contains string we need to replace
@@ -26,4 +26,6 @@ if grep -q "${FIND}" ${TARGET_FILE}; then # file contains string we need to repl
     REPL_STAT="YES"
 fi
 
-echo "Processing ${TARGET_FILE}: TOP=${TOP_STAT} REPL=${REPL_STAT}"
+if [ ${REPL_STAT} == "YES" ]; then
+    echo "Processed ${TARGET_FILE}: TOP=${TOP_STAT} REPL=${REPL_STAT}"
+fi
