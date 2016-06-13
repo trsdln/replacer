@@ -22,5 +22,11 @@ for FILE in `git ls-files . | grep '.js'`; do
 done
 ```
 
+__Single line example:__
+
+```sh
+$ git ls-files . | grep -E '^(client|both|server|imports)/.+\.js$' | xargs -I % replacer "%" "${FIND}" "${REPLACE}" "${TOP_LINE}"
+```
+
 Right now it works only with Mac OS X, because it uses `sed` which isn't 
 compatible with Linux's version of the utility.
